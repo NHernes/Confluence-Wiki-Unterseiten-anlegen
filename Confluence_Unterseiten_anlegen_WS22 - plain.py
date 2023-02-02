@@ -21,7 +21,7 @@ except:
 #Hier wird aus der CSV ein dictionary generiert, welches jede Anfrage mit den dazugehörigen Durchgängen und weiteren Informationen hält
 def dict_generieren():
     gesamtübersicht=[]
-    with open ('Prüfungsverteilung_2111022_1649Uhr - Sortierung_Mailversand_abgeschlossen.csv') as csv_file:
+    with open ('HIER CSV FILE EINFÜGEN') as csv_file:
         csv_reader=csv.DictReader(csv_file,delimiter=';')
         line_count=0
         
@@ -3797,7 +3797,7 @@ def unterseite_generieren(gesamtübersicht):
 unterseite_generieren(gesamtübersicht)
 
 def csv_mit_wiki_links_füttern():
-    df = pandas.read_csv('Prüfungsverteilung_2111022_1649Uhr - Sortierung_Mailversand_abgeschlossen.csv',encoding = 'unicode_escape', sep=';') #Transformieren der CSV in pd, um Daten manipulieren zu können
+    df = pandas.read_csv('HIER CSV EINFÜGEN',encoding = 'unicode_escape', sep=';') #Transformieren der CSV in pd, um Daten manipulieren zu können
     df = pandas.DataFrame(df)
     for index, row in df.iterrows():
       for eintrag in gesamtübersicht:
@@ -3806,7 +3806,7 @@ def csv_mit_wiki_links_füttern():
           df.at[index,"Wiki-Unterseite NK"] = eintrag["Wiki-Unterseite NK"]
           row["Wiki-Unterseite NK"]=eintrag["Wiki-Unterseite NK"]
 
-    df.to_csv('Prüfungsverteilung_2111022_1649Uhr - Sortierung_Mailversand_abgeschlossen.csv', index=False, sep=";", encoding='iso-8859-15')
+    df.to_csv('HIER CSV EINFÜGEN', index=False, sep=";", encoding='iso-8859-15')
 
 
 csv_mit_wiki_links_füttern()
