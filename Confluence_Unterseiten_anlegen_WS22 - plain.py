@@ -3799,12 +3799,9 @@ unterseite_generieren(gesamtübersicht)
 def csv_mit_wiki_links_füttern():
     df = pandas.read_csv('HIER CSV EINFÜGEN',encoding = 'unicode_escape', sep=';') #Transformieren der CSV in pd, um Daten manipulieren zu können
     df = pandas.DataFrame(df)
-    for index, row in df.iterrows():
-      for eintrag in gesamtübersicht:
-        if int(row["Index"])==int(eintrag["Index"]):
-          df.at[index,"Wiki-Unterseite HK"] = eintrag["Wiki-Unterseite HK"]
-          df.at[index,"Wiki-Unterseite NK"] = eintrag["Wiki-Unterseite NK"]
-          row["Wiki-Unterseite NK"]=eintrag["Wiki-Unterseite NK"]
+    for eintrag in gesamtübersicht:
+        df.at[eintrag["Index"],"Wiki-Unterseite HK"] = eintrag["Wiki-Unterseite HK"]
+        df.at[eintrag["Index"],"Wiki-Unterseite NK"] = eintrag["Wiki-Unterseite NK"]
 
     df.to_csv('HIER CSV EINFÜGEN', index=False, sep=";", encoding='iso-8859-15')
 
